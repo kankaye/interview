@@ -35,4 +35,5 @@ Write a function that takes two string parameters, `x` and `y`. The function sho
 1. `x = "ABOUYTN", y = "NA"` should return False
 2. `x = "ABOUYTN", y = "BA"` should return False
 3. `x = "ABOUYTN", y = "F"` should return False
-4. `x = "ABOUYTN", y = "Z"`
+4. `x = "ABOUYTN", y = "Z"` should return False
+5. `x = "", y = "A"` should return False (Empty `x` with non-empty `y`)
