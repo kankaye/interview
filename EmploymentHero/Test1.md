@@ -52,3 +52,12 @@ The command-line arguments that the function should recognize are:
 14. `["--name", "test", "--name", "test2"]` should return -1 (Duplicate `--name` argument)
 15. `["--range", "15", "--range", "20"]` should return -1 (Duplicate `--range` argument)
 16. `["--help", "--help"]` should return -1 (Duplicate `--help` argument)
+17. 
+### Additional Invalid Test Cases for Unrecognized Arguments
+1. `["--unknown"]` should return -1 (Unrecognized argument)
+2. `["--name", "test", "--unknown"]` should return -1 (Valid `--name` but unrecognized argument)
+3. `["--help", "--unknown"]` should return -1 (`--help` present but unrecognized argument)
+4. `["--unknown", "--range", "15"]` should return -1 (Valid `--range` but unrecognized argument)
+5. `["--unknown", "--unknown2"]` should return -1 (Multiple unrecognized arguments)
+6. `["--name", "test", "--unknown", "--range", "15"]` should return -1 (Valid `--name` and `--range` but unrecognized argument)
+
