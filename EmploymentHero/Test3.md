@@ -16,6 +16,11 @@ Write a function with the signature `public int solution(string[] Connections, s
 1. The function should be **case-insensitive**.
 2. The function should handle cycles in relationships gracefully.
 3. If there are multiple paths between `Name1` and `Name2`, return the shortest path.
+4. 
+## Examples
+- `Connections = ["Martin:Job","Kim:Job","martin:David","Kim:Larsey","Larsey:Job"], Name1 = "Martin", Name2 = "Job"` should return 1 (Martin -> Job)
+- `Connections = ["Martin:Job","Kim:Job","Kim:David","Kim:Larsey","Larsey:Job", "Larsey:David"], Name1 = "martin", Name2 = "David"` should return 2 (martin -> Kim -> David)
+- `Connections = ["martin:Job","Kim:Job","Martin:David","Kim:Larsey","Larsey:Job"], Name1 = "Martin", Name2 = "job"` should return 1 (Martin -> job)
 
 ## Test Cases
 
