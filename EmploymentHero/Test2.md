@@ -1,7 +1,7 @@
 # Function Requirements
 
 ## Objective
-Write a function that takes two string parameters, `x` and `y`. The function should evaluate whether string `x` contains all the characters in string `y` in the same sequential order as they appear in `y`. The function will return a boolean value indicating the result of this evaluation. The function should not be case-sensitive and should not modify the input strings.
+Write a function that takes two string parameters, `x` and `y`. The function should evaluate whether string `x` contains all the characters in string `y` in the same sequential order as they appear in `y`. The function will return a boolean value indicating the result of this evaluation. The function should be case-sensitive and should not modify the input strings.
 
 ## Parameters
 - `x`: A string that we will check for the presence and sequential order of characters from `y`.
@@ -12,7 +12,7 @@ Write a function that takes two string parameters, `x` and `y`. The function sho
 - **False**: Otherwise.
 
 ## Rules
-1. The function should not be case-sensitive.
+1. The function should be case-sensitive.
 2. The order of characters in `y` must be maintained in `x` for the function to return True.
 
 ## Examples
