@@ -4,7 +4,7 @@
 Write a function that takes an array of strings as its parameter. These strings represent command-line arguments and their corresponding values. The function should validate these arguments and return an integer based on the following rules.
 
 ## Arguments
-The command-line arguments that the function should recognize are:
+The command-line arguments that the function should recognize are (case-insensitive):
 - `--name`
 - `--help`
 - `--range`
@@ -16,8 +16,9 @@ The command-line arguments that the function should recognize are:
 
 ## Validation Rules
 1. An empty array is considered invalid.
-2. If the argument is `--name`, the length of its value must be between 3 and 10 characters.
-3. If the argument is `--range`, the value must be an integer between 10 and 100.
+2. If the argument is `--name` (case-insensitive), the length of its value must be between 3 and 10 characters.
+3. If the argument is `--range` (case-insensitive), the value must be an integer between 10 and 100.
+4. Command-line arguments are case-insensitive (e.g., `--NAME` and `--name` are considered the same).
 
 ## Priority
 - The `--help` argument has the highest priority. However, if other arguments are also passed, they must be valid; otherwise, the function should return -1.
@@ -26,29 +27,44 @@ The command-line arguments that the function should recognize are:
 
 ### Valid Test Cases
 1. `["--name", "test"]` should return 0
-2. `["--range", "15"]` should return 0
-3. `["--help"]` should return 1
-4. `["--help", "--name", "test"]` should return 1
-5. `["--help", "--range", "15"]` should return 1
-6. `["--name", "test", "--range", "15"]` should return 0
-7. `["--range", "15", "--name", "test"]` should return 0
-8. `["--help", "--name", "test", "--range", "15"]` should return 1
-9. `["--name", "test", "--help", "--range", "15"]` should return 1
+1. `["--NAME", "test"]` should return 0
+1. `["--range", "15"]` should return 0
+1. `["--RANGE", "15"]` should return 0
+1. `["--help"]` should return 1
+1. `["--help", "--name", "test"]` should return 1
+1. `["--help", "--range", "15"]` should return 1
+1. `["--name", "test", "--range", "15"]` should return 0
+1. `["--range", "15", "--name", "test"]` should return 0
+1. `["--help", "--name", "test", "--range", "15"]` should return 1
+1. `["--name", "test", "--help", "--range", "15"]` should return 1
 
 ### Invalid Test Cases
 1. `[]` should return -1 (Empty array)
-2. `["--name"]` should return -1 (Missing value for `--name`)
-3. `["--range"]` should return -1 (Missing value for `--range`)
-4. `["--name", "te"]` should return -1 (Value for `--name` too short)
-5. `["--name", "thisisaverylongname"]` should return -1 (Value for `--name` too long)
-6. `["--range", "5"]` should return -1 (Value for `--range` too low)
-7. `["--range", "105"]` should return -1 (Value for `--range` too high)
-8. `["--help", "--name"]` should return -1 (Missing value for `--name`)
-9. `["--help", "--range"]` should return -1 (Missing value for `--range`)
-10. `["--help", "--name", "te"]` should return -1 (Value for `--name` too short)
-11. `["--help", "--range", "105"]` should return -1 (Value for `--range` too high)
-12. `["--name", "test", "--range"]` should return -1 (Missing value for `--range`)
-13. `["--range", "15", "--name"]` should return -1 (Missing value for `--name`)
-14. `["--name", "test", "--name", "test2"]` should return -1 (Duplicate `--name` argument)
-15. `["--range", "15", "--range", "20"]` should return -1 (Duplicate `--range` argument)
-16. `["--help", "--help"]` should return -1 (Duplicate `--help` argument)
+1. `["--name"]` should return -1 (Missing value for `--name`)
+1. `["--NAME"]` should return -1 (Missing value for `--name`, case-insensitive)
+1. `["--name", "te"]` should return -1 (Value for `--name` too short)
+1. `["--NAME", "te"]` should return -1 (Value for `--name` too short, case-insensitive)
+1. `["--name", "thisisaverylongname"]` should return -1 (Value for `--name` too long)
+1. `["--NAME", "thisisaverylongname"]` should return -1 (Value for `--name` too long, case-insensitive)
+1. `["--name", "te"]` should return -1 (Value for `--name` too short)
+1. `["--name", "thisisaverylongname"]` should return -1 (Value for `--name` too long)
+1. `["--range", "5"]` should return -1 (Value for `--range` too low)
+1. `["--range", "105"]` should return -1 (Value for `--range` too high)
+1. `["--help", "--name"]` should return -1 (Missing value for `--name`)
+1. `["--help", "--range"]` should return -1 (Missing value for `--range`)
+1. `["--help", "--name", "te"]` should return -1 (Value for `--name` too short)
+1. `["--help", "--range", "105"]` should return -1 (Value for `--range` too high)
+1. `["--name", "test", "--range"]` should return -1 (Missing value for `--range`)
+1. `["--range", "15", "--name"]` should return -1 (Missing value for `--name`)
+1. `["--name", "test", "--name", "test2"]` should return -1 (Duplicate `--name` argument)
+1. `["--range", "15", "--range", "20"]` should return -1 (Duplicate `--range` argument)
+1. `["--help", "--help"]` should return -1 (Duplicate `--help` argument)
+
+### Additional Invalid Test Cases for Unrecognized Arguments
+1. `["--unknown"]` should return -1 (Unrecognized argument)
+2. `["--name", "test", "--unknown"]` should return -1 (Valid `--name` but unrecognized argument)
+3. `["--help", "--unknown"]` should return -1 (`--help` present but unrecognized argument)
+4. `["--unknown", "--range", "15"]` should return -1 (Valid `--range` but unrecognized argument)
+5. `["--unknown", "--unknown2"]` should return -1 (Multiple unrecognized arguments)
+6. `["--name", "test", "--unknown", "--range", "15"]` should return -1 (Valid `--name` and `--range` but unrecognized argument)
+
