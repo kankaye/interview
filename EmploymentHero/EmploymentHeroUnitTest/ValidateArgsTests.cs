@@ -181,6 +181,12 @@ namespace EmploymentHeroUnitTest
         {
             Assert.AreEqual(-1, Test1.ValidateArgs(new List<string> { "--name", "test", "--unknown", "--range", "15" }));
         }
+
+        [Test]
+        public void ValidateArguments_ValidNameInvalidRange_ReturnsMinusOne()
+        {
+            Assert.AreEqual(-1, Test1.ValidateArgs(new List<string> { "--name", "test",  "--range", "105" }));
+        }
     }
 
 }
