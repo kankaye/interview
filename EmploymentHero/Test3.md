@@ -27,9 +27,9 @@ Write a function with the signature `public int solution(string[] Connections, s
 ### Valid Test Cases
 1. `Connections = ["Martin:Job","Kim:Job","martin:David","Kim:Larsey","Larsey:Job"], Name1 = "Martin", Name2 = "Job"` should return 1
 2. `Connections = ["Martin:Job","Kim:Job","Kim:David","Kim:Larsey","Larsey:Job", "Larsey:David"], Name1 = "martin", Name2 = "David"` should return 2
-3. `Connections = ["martin:Kim","Kim:David","David:Larsey","Larsey:Job"], Name1 = "Martin", Name2 = "job"` should return 3
-4. `Connections = ["Martin:Kim","Kim:David","David:Larsey","Larsey:Job", "Job:Zoe", "Zoe:Alan"], Name1 = "martin", Name2 = "ALAN"` should return 5
-5. `Connections = ["Martin:Kim","Kim:David","David:Larsey","Larsey:Job", "Job:Zoe", "Zoe:Alan", "Alan:Steve"], Name1 = "MARTIN", Name2 = "steve"` should return 6
+3. `Connections = ["martin:Kim","Kim:David","David:Larsey","Larsey:Job"], Name1 = "Martin", Name2 = "job"` should return 4
+4. `Connections = ["Martin:Kim","Kim:David","David:Larsey","Larsey:Job", "Job:Zoe", "Zoe:Alan"], Name1 = "martin", Name2 = "ALAN"` should return 6
+5. `Connections = ["Martin:Kim","Kim:David","David:Larsey","Larsey:Job", "Job:Zoe", "Zoe:Alan", "Alan:Steve"], Name1 = "MARTIN", Name2 = "steve"` should return 7
 
 ### Invalid Test Cases
 1. `Connections = ["Martin:Job","Kim:Job","martin:David","Kim:Larsey","Larsey:Job"], Name1 = "Martin", Name2 = "Zoe"` should return -1
