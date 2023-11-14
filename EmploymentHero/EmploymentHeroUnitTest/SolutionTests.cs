@@ -37,7 +37,7 @@ namespace EmploymentHeroUnitTest
         }
 
         [TestCase(new string[] { "Martin:Job", "Kim:Job", "martin:David", "Kim:Larsey", "Larsey:Job" }, "Martin", "Job", 1)]
-        [TestCase(new string[] { "Martin:Job", "Kim:Job", "Kim:David", "Kim:Larsey", "Larsey:Job", "Larsey:David" }, "martin", "David", 2)]
+        [TestCase(new string[] { "Martin:Job", "Kim:Job", "Kim:David", "Kim:Larsey", "Larsey:Job", "Larsey:David" }, "martin", "David", 3)]
         [TestCase(new string[] { "martin:Kim", "Kim:David", "David:Larsey", "Larsey:Job" }, "Martin", "job", 4)]
         [TestCase(new string[] { "Martin:Kim", "Kim:David", "David:Larsey", "Larsey:Job", "Job:Zoe", "Zoe:Alan" }, "martin", "ALAN", 6)]
         [TestCase(new string[] { "Martin:Kim", "Kim:David", "David:Larsey", "Larsey:Job", "Job:Zoe", "Zoe:Alan", "Alan:Steve" }, "MARTIN", "steve", 7)]
